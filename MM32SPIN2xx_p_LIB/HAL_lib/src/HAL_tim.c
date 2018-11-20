@@ -2517,6 +2517,7 @@ void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC)
 *            @arg TIM_IT_COM: TIM Commutation Interrupt source
 *            @arg TIM_IT_Trigger: TIM Trigger Interrupt source
 *            @arg TIM_IT_Break: TIM Break Interrupt source
+*            @arg TIM_IT_DMA: TIM DMA Interrupt source
 * 
 * @note   TIM6 and TIM7 can only generate an update interrupt.
 * @note   TIM15 can have only TIM_IT_Update, TIM_IT_CC1,TIM_IT_CC2 or TIM_IT_Trigger. 
