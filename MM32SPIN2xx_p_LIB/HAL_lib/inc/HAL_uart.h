@@ -235,6 +235,7 @@ void UART_Init(UART_TypeDef* UARTx, UART_InitTypeDef* UART_InitStruct);
 void UART_StructInit(UART_InitTypeDef* UART_InitStruct);
 void UART_Cmd(UART_TypeDef* UARTx, FunctionalState NewState);
 void UART_ITConfig(UART_TypeDef* UARTx, uint16_t UART_IT, FunctionalState NewState);
+void UART_DirectionModeCmd(UART_TypeDef* UARTx, uint32_t UART_DirectionMode, FunctionalState NewState);
 void UART_DMACmd(UART_TypeDef* UARTx, uint16_t UART_DMAReq, FunctionalState NewState);
 void UART_SendData(UART_TypeDef* UARTx, uint16_t Data);
 uint16_t UART_ReceiveData(UART_TypeDef* UARTx);

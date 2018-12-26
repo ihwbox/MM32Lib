@@ -292,6 +292,35 @@ void UART_ITConfig(UART_TypeDef* UARTx, uint16_t UART_IT, FunctionalState NewSta
 }
 
 /**
+* @brief  Enables or disables the UART's transmitter or receiver.
+* @param UARTx: Select the UART or the UART peripheral.
+*   This parameter can be one of the following values:
+*   UART1, UART2, UART3.
+* @param UART_DirectionMode: specifies the UART direction.
+*   This parameter can be one of the following values:
+*
+* @arg UART_Mode_Rx:  UART Receiver
+* @arg UART_Mode_Tx:  UART Transmitter
+* @param NewState: new state of the UART transfer direction.
+*   This parameter can be: ENABLE or DISABLE.
+* @retval : None
+*/
+void UART_DirectionModeCmd(UART_TypeDef* UARTx, uint32_t UART_DirectionMode, FunctionalState NewState) {
+	/* Check the parameters */
+	assert_param(IS_UART_ALL_PERIPH(UARTx));
+	assert_param(IS_UART_MODE(UART_DirectionMode));
+	assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+	if (NewState != DISABLE) {
+		/* Enable the UART_IT interrupt */
+		UARTx->GCR  |= UART_DirectionMode;
+	} else {
+		/* Disable the UART_IT interrupt */
+		UARTx->GCR  &= ~ UART_DirectionMode;
+	}
+}
+
+/**
 * @brief  Enables or disables the UART’s DMA interface.
 * @param UARTx: Select the UART or the UART peripheral. 
 *   This parameter can be one of the following values:
